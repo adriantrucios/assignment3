@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-cats
+  namespace: cats
+  labels:
+    app: cats
+    assignment: lab2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cats
+      assignment: lab2
+  template:
+    metadata:
+      labels:
+        app: cats
+        assignment: lab2
+    spec:
+      containers:
+      - name: cats
+        image: cats
+        ports:
+        - containerPort: 30000
